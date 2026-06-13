@@ -522,11 +522,14 @@ pokegun: /lib64/ld-linux-x86-64.so.2 \
   /usr/lib/x86_64-linux-gnu/libc_nonshared.a \
   /usr/lib/x86_64-linux-gnu/libm.so.6 \
   /usr/lib/x86_64-linux-gnu/libmvec.so.1 \
+  CMakeFiles/pokegun.dir/src/Character.cpp.o \
   CMakeFiles/pokegun.dir/src/Monster.cpp.o \
   CMakeFiles/pokegun.dir/src/main.cpp.o
 
 
 CMakeFiles/pokegun.dir/src/main.cpp.o:
+
+CMakeFiles/pokegun.dir/src/Character.cpp.o:
 
 /usr/lib/x86_64-linux-gnu/libc_nonshared.a:
 
