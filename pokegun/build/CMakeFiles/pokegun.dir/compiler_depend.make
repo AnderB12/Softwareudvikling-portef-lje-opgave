@@ -511,6 +511,7 @@ CMakeFiles/pokegun.dir/src/Monster.cpp.o: /home/anders/Desktop/Skole/Softwareudv
 CMakeFiles/pokegun.dir/src/main.cpp.o: /home/anders/Desktop/Skole/Softwareudvikling/Portefølje_opgave/Softwareudvikling-portef-lje-opgave/pokegun/src/main.cpp \
   /home/anders/Desktop/Skole/Softwareudvikling/Portefølje_opgave/Softwareudvikling-portef-lje-opgave/pokegun/include/Character.hpp \
   /home/anders/Desktop/Skole/Softwareudvikling/Portefølje_opgave/Softwareudvikling-portef-lje-opgave/pokegun/include/Game.hpp \
+  /home/anders/Desktop/Skole/Softwareudvikling/Portefølje_opgave/Softwareudvikling-portef-lje-opgave/pokegun/include/Items.hpp \
   /home/anders/Desktop/Skole/Softwareudvikling/Portefølje_opgave/Softwareudvikling-portef-lje-opgave/pokegun/include/Monster.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
@@ -1009,6 +1010,8 @@ CMakeFiles/pokegun.dir/src/Monster.cpp.o:
 /usr/include/c++/15/bits/ptr_traits.h:
 
 /usr/include/c++/15/debug/debug.h:
+
+/home/anders/Desktop/Skole/Softwareudvikling/Portefølje_opgave/Softwareudvikling-portef-lje-opgave/pokegun/include/Items.hpp:
 
 /usr/include/c++/15/bits/functexcept.h:
 
