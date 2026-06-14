@@ -165,4 +165,6 @@ CMakeFiles/pokegun.dir/src/main.cpp.o: \
  /usr/include/c++/15/bits/stl_vector.h \
  /usr/include/c++/15/bits/stl_bvector.h \
  /usr/include/c++/15/bits/vector.tcc \
- /home/anders/Desktop/Skole/Softwareudvikling/Portefølje_opgave/Softwareudvikling-portef-lje-opgave/pokegun/include/Monster.hpp
+ /home/anders/Desktop/Skole/Softwareudvikling/Portefølje_opgave/Softwareudvikling-portef-lje-opgave/pokegun/include/Monster.hpp \
+ /home/anders/Desktop/Skole/Softwareudvikling/Portefølje_opgave/Softwareudvikling-portef-lje-opgave/pokegun/include/Character.hpp \
+ /home/anders/Desktop/Skole/Softwareudvikling/Portefølje_opgave/Softwareudvikling-portef-lje-opgave/pokegun/include/Game.hpp
