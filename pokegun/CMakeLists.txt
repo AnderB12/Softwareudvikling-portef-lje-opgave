@@ -9,4 +9,5 @@ add_executable(pokegun
     src/main.cpp
     src/Monster.cpp
     src/Character.cpp
+    src/Game.cpp
 )
