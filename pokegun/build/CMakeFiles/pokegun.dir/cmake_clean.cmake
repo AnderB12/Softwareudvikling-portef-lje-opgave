@@ -2,6 +2,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/pokegun.dir/link.d"
   "CMakeFiles/pokegun.dir/src/Character.cpp.o"
   "CMakeFiles/pokegun.dir/src/Character.cpp.o.d"
+  "CMakeFiles/pokegun.dir/src/Game.cpp.o"
+  "CMakeFiles/pokegun.dir/src/Game.cpp.o.d"
   "CMakeFiles/pokegun.dir/src/Monster.cpp.o"
   "CMakeFiles/pokegun.dir/src/Monster.cpp.o.d"
   "CMakeFiles/pokegun.dir/src/main.cpp.o"
