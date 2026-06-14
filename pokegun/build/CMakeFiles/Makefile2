@@ -63,11 +63,11 @@ CMAKE_BINARY_DIR = /home/anders/Desktop/Skole/Softwareudvikling/Portefølje_opga
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/pokegun.dir/all
+all: CMakeFiles/SomeGame.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
-codegen: CMakeFiles/pokegun.dir/codegen
+codegen: CMakeFiles/SomeGame.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -75,40 +75,40 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/pokegun.dir/clean
+clean: CMakeFiles/SomeGame.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/pokegun.dir
+# Target rules for target CMakeFiles/SomeGame.dir
 
 # All Build rule for target.
-CMakeFiles/pokegun.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pokegun.dir/build.make CMakeFiles/pokegun.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pokegun.dir/build.make CMakeFiles/pokegun.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/anders/Desktop/Skole/Softwareudvikling/Portefølje_opgave/Softwareudvikling-portef-lje-opgave/pokegun/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target pokegun"
-.PHONY : CMakeFiles/pokegun.dir/all
+CMakeFiles/SomeGame.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SomeGame.dir/build.make CMakeFiles/SomeGame.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SomeGame.dir/build.make CMakeFiles/SomeGame.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/anders/Desktop/Skole/Softwareudvikling/Portefølje_opgave/Softwareudvikling-portef-lje-opgave/pokegun/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target SomeGame"
+.PHONY : CMakeFiles/SomeGame.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/pokegun.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/anders/Desktop/Skole/Softwareudvikling/Portefølje_opgave/Softwareudvikling-portef-lje-opgave/pokegun/build/CMakeFiles 5
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/pokegun.dir/all
+CMakeFiles/SomeGame.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/anders/Desktop/Skole/Softwareudvikling/Portefølje_opgave/Softwareudvikling-portef-lje-opgave/pokegun/build/CMakeFiles 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/SomeGame.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/anders/Desktop/Skole/Softwareudvikling/Portefølje_opgave/Softwareudvikling-portef-lje-opgave/pokegun/build/CMakeFiles 0
-.PHONY : CMakeFiles/pokegun.dir/rule
+.PHONY : CMakeFiles/SomeGame.dir/rule
 
 # Convenience name for target.
-pokegun: CMakeFiles/pokegun.dir/rule
-.PHONY : pokegun
+SomeGame: CMakeFiles/SomeGame.dir/rule
+.PHONY : SomeGame
 
 # codegen rule for target.
-CMakeFiles/pokegun.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pokegun.dir/build.make CMakeFiles/pokegun.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/anders/Desktop/Skole/Softwareudvikling/Portefølje_opgave/Softwareudvikling-portef-lje-opgave/pokegun/build/CMakeFiles --progress-num=1,2,3,4,5 "Finished codegen for target pokegun"
-.PHONY : CMakeFiles/pokegun.dir/codegen
+CMakeFiles/SomeGame.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SomeGame.dir/build.make CMakeFiles/SomeGame.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/anders/Desktop/Skole/Softwareudvikling/Portefølje_opgave/Softwareudvikling-portef-lje-opgave/pokegun/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Finished codegen for target SomeGame"
+.PHONY : CMakeFiles/SomeGame.dir/codegen
 
 # clean rule for target.
-CMakeFiles/pokegun.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pokegun.dir/build.make CMakeFiles/pokegun.dir/clean
-.PHONY : CMakeFiles/pokegun.dir/clean
+CMakeFiles/SomeGame.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SomeGame.dir/build.make CMakeFiles/SomeGame.dir/clean
+.PHONY : CMakeFiles/SomeGame.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

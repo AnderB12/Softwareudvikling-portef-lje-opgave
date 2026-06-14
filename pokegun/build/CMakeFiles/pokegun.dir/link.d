@@ -6,6 +6,7 @@ pokegun: \
   CMakeFiles/pokegun.dir/src/Monster.cpp.o \
   CMakeFiles/pokegun.dir/src/Character.cpp.o \
   CMakeFiles/pokegun.dir/src/Game.cpp.o \
+  CMakeFiles/pokegun.dir/src/Items.cpp.o \
   /usr/lib/gcc/x86_64-linux-gnu/15/libstdc++.so \
   /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/libm.so \
   /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/libm.so \
@@ -48,6 +49,8 @@ CMakeFiles/pokegun.dir/src/Monster.cpp.o:
 CMakeFiles/pokegun.dir/src/Character.cpp.o:
 
 CMakeFiles/pokegun.dir/src/Game.cpp.o:
+
+CMakeFiles/pokegun.dir/src/Items.cpp.o:
 
 /usr/lib/gcc/x86_64-linux-gnu/15/libstdc++.so:
 

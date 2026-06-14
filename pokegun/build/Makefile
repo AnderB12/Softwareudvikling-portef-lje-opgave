@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named pokegun
+# Target rules for targets named SomeGame
 
 # Build rule for target.
-pokegun: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pokegun
-.PHONY : pokegun
+SomeGame: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SomeGame
+.PHONY : SomeGame
 
 # fast build rule for target.
-pokegun/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pokegun.dir/build.make CMakeFiles/pokegun.dir/build
-.PHONY : pokegun/fast
+SomeGame/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SomeGame.dir/build.make CMakeFiles/SomeGame.dir/build
+.PHONY : SomeGame/fast
 
 src/Character.o: src/Character.cpp.o
 .PHONY : src/Character.o
 
 # target to build an object file
 src/Character.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pokegun.dir/build.make CMakeFiles/pokegun.dir/src/Character.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SomeGame.dir/build.make CMakeFiles/SomeGame.dir/src/Character.cpp.o
 .PHONY : src/Character.cpp.o
 
 src/Character.i: src/Character.cpp.i
@@ -142,7 +142,7 @@ src/Character.i: src/Character.cpp.i
 
 # target to preprocess a source file
 src/Character.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pokegun.dir/build.make CMakeFiles/pokegun.dir/src/Character.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SomeGame.dir/build.make CMakeFiles/SomeGame.dir/src/Character.cpp.i
 .PHONY : src/Character.cpp.i
 
 src/Character.s: src/Character.cpp.s
@@ -150,7 +150,7 @@ src/Character.s: src/Character.cpp.s
 
 # target to generate assembly for a file
 src/Character.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pokegun.dir/build.make CMakeFiles/pokegun.dir/src/Character.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SomeGame.dir/build.make CMakeFiles/SomeGame.dir/src/Character.cpp.s
 .PHONY : src/Character.cpp.s
 
 src/Game.o: src/Game.cpp.o
@@ -158,7 +158,7 @@ src/Game.o: src/Game.cpp.o
 
 # target to build an object file
 src/Game.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pokegun.dir/build.make CMakeFiles/pokegun.dir/src/Game.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SomeGame.dir/build.make CMakeFiles/SomeGame.dir/src/Game.cpp.o
 .PHONY : src/Game.cpp.o
 
 src/Game.i: src/Game.cpp.i
@@ -166,7 +166,7 @@ src/Game.i: src/Game.cpp.i
 
 # target to preprocess a source file
 src/Game.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pokegun.dir/build.make CMakeFiles/pokegun.dir/src/Game.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SomeGame.dir/build.make CMakeFiles/SomeGame.dir/src/Game.cpp.i
 .PHONY : src/Game.cpp.i
 
 src/Game.s: src/Game.cpp.s
@@ -174,15 +174,39 @@ src/Game.s: src/Game.cpp.s
 
 # target to generate assembly for a file
 src/Game.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pokegun.dir/build.make CMakeFiles/pokegun.dir/src/Game.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SomeGame.dir/build.make CMakeFiles/SomeGame.dir/src/Game.cpp.s
 .PHONY : src/Game.cpp.s
+
+src/Items.o: src/Items.cpp.o
+.PHONY : src/Items.o
+
+# target to build an object file
+src/Items.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SomeGame.dir/build.make CMakeFiles/SomeGame.dir/src/Items.cpp.o
+.PHONY : src/Items.cpp.o
+
+src/Items.i: src/Items.cpp.i
+.PHONY : src/Items.i
+
+# target to preprocess a source file
+src/Items.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SomeGame.dir/build.make CMakeFiles/SomeGame.dir/src/Items.cpp.i
+.PHONY : src/Items.cpp.i
+
+src/Items.s: src/Items.cpp.s
+.PHONY : src/Items.s
+
+# target to generate assembly for a file
+src/Items.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SomeGame.dir/build.make CMakeFiles/SomeGame.dir/src/Items.cpp.s
+.PHONY : src/Items.cpp.s
 
 src/Monster.o: src/Monster.cpp.o
 .PHONY : src/Monster.o
 
 # target to build an object file
 src/Monster.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pokegun.dir/build.make CMakeFiles/pokegun.dir/src/Monster.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SomeGame.dir/build.make CMakeFiles/SomeGame.dir/src/Monster.cpp.o
 .PHONY : src/Monster.cpp.o
 
 src/Monster.i: src/Monster.cpp.i
@@ -190,7 +214,7 @@ src/Monster.i: src/Monster.cpp.i
 
 # target to preprocess a source file
 src/Monster.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pokegun.dir/build.make CMakeFiles/pokegun.dir/src/Monster.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SomeGame.dir/build.make CMakeFiles/SomeGame.dir/src/Monster.cpp.i
 .PHONY : src/Monster.cpp.i
 
 src/Monster.s: src/Monster.cpp.s
@@ -198,7 +222,7 @@ src/Monster.s: src/Monster.cpp.s
 
 # target to generate assembly for a file
 src/Monster.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pokegun.dir/build.make CMakeFiles/pokegun.dir/src/Monster.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SomeGame.dir/build.make CMakeFiles/SomeGame.dir/src/Monster.cpp.s
 .PHONY : src/Monster.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -206,7 +230,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pokegun.dir/build.make CMakeFiles/pokegun.dir/src/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SomeGame.dir/build.make CMakeFiles/SomeGame.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -214,7 +238,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pokegun.dir/build.make CMakeFiles/pokegun.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SomeGame.dir/build.make CMakeFiles/SomeGame.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -222,7 +246,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pokegun.dir/build.make CMakeFiles/pokegun.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SomeGame.dir/build.make CMakeFiles/SomeGame.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -233,13 +257,16 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... pokegun"
+	@echo "... SomeGame"
 	@echo "... src/Character.o"
 	@echo "... src/Character.i"
 	@echo "... src/Character.s"
 	@echo "... src/Game.o"
 	@echo "... src/Game.i"
 	@echo "... src/Game.s"
+	@echo "... src/Items.o"
+	@echo "... src/Items.i"
+	@echo "... src/Items.s"
 	@echo "... src/Monster.o"
 	@echo "... src/Monster.i"
 	@echo "... src/Monster.s"

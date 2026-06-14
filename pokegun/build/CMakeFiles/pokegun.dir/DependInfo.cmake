@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/anders/Desktop/Skole/Softwareudvikling/Portefølje_opgave/Softwareudvikling-portef-lje-opgave/pokegun/src/Character.cpp" "CMakeFiles/pokegun.dir/src/Character.cpp.o" "gcc" "CMakeFiles/pokegun.dir/src/Character.cpp.o.d"
   "/home/anders/Desktop/Skole/Softwareudvikling/Portefølje_opgave/Softwareudvikling-portef-lje-opgave/pokegun/src/Game.cpp" "CMakeFiles/pokegun.dir/src/Game.cpp.o" "gcc" "CMakeFiles/pokegun.dir/src/Game.cpp.o.d"
+  "/home/anders/Desktop/Skole/Softwareudvikling/Portefølje_opgave/Softwareudvikling-portef-lje-opgave/pokegun/src/Items.cpp" "CMakeFiles/pokegun.dir/src/Items.cpp.o" "gcc" "CMakeFiles/pokegun.dir/src/Items.cpp.o.d"
   "/home/anders/Desktop/Skole/Softwareudvikling/Portefølje_opgave/Softwareudvikling-portef-lje-opgave/pokegun/src/Monster.cpp" "CMakeFiles/pokegun.dir/src/Monster.cpp.o" "gcc" "CMakeFiles/pokegun.dir/src/Monster.cpp.o.d"
   "/home/anders/Desktop/Skole/Softwareudvikling/Portefølje_opgave/Softwareudvikling-portef-lje-opgave/pokegun/src/main.cpp" "CMakeFiles/pokegun.dir/src/main.cpp.o" "gcc" "CMakeFiles/pokegun.dir/src/main.cpp.o.d"
   "" "pokegun" "gcc" "CMakeFiles/pokegun.dir/link.d"
