@@ -1,11 +1,20 @@
 #pragma once
+#include <string>
 #include "Character.hpp"
-#include "Monster.hpp"
-
-void showStartScreen();
-
-void createCharacter();
-
-void battle(Character& character);
-
-void showMainMenu(Character& character);
+ 
+class Game {
+public:
+    Game();
+    ~Game();
+ 
+    // Entry point — call this from main()
+    void run();
+ 
+private:
+    Character* character;
+ 
+    void showStartScreen();
+    void createCharacter();
+    void showMainMenu();
+    void battle();
+};
