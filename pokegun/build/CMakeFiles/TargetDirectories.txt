@@ -1,3 +1,0 @@
-/home/anders/Desktop/Skole/Softwareudvikling/Portefølje_opgave/Softwareudvikling-portef-lje-opgave/pokegun/build/CMakeFiles/SomeGame.dir
-/home/anders/Desktop/Skole/Softwareudvikling/Portefølje_opgave/Softwareudvikling-portef-lje-opgave/pokegun/build/CMakeFiles/edit_cache.dir
-/home/anders/Desktop/Skole/Softwareudvikling/Portefølje_opgave/Softwareudvikling-portef-lje-opgave/pokegun/build/CMakeFiles/rebuild_cache.dir

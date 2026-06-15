@@ -3,6 +3,8 @@
 #include <iostream>
 #include <vector>
 #include <cstdlib>
+#include "Items.hpp"
+#include "StatusEffect.hpp"
  
 Game::Game() : character(nullptr) {}
  
@@ -16,7 +18,7 @@ void Game::run() {
  
 void Game::showStartScreen() {
     std::cout << "=======================" << std::endl;
-    std::cout << "  Welcome to O-Block!  " << std::endl;
+    std::cout << "  Welcome to Some Game!  " << std::endl;
     std::cout << "   1. New character    " << std::endl;
     std::cout << "   2. Exit             " << std::endl;
     std::cout << "=======================" << std::endl;
@@ -79,6 +81,38 @@ void Game::showMainMenu() {
     }
 }
  
+static bool playerTurnAction(Monster& playerMonster, Monster& enemyMonster) {
+    const auto& items = playerMonster.getItems();
+
+    std::cout << "--- Your turn ---" << std::endl;
+    std::cout << "1. Attack" << std::endl;
+    for (size_t i = 0; i < items.size(); ++i) {
+        std::cout << i + 2 << ". Use " << items[i].getName()
+                  << " - " << items[i].getDescription() << std::endl;
+    }
+
+    int choice;
+    std::cin >> choice;
+
+    if (choice == 1) {
+        std::cout << "Your " << playerMonster.getName() << " attacks!" << std::endl;
+        enemyMonster.takeDamage(playerMonster.getAttackPower());
+        std::cout << "Enemy " << enemyMonster.getName()
+                  << " has " << enemyMonster.getHealth() << " HP left." << std::endl;
+        return true;
+    }
+
+    int itemIndex = choice - 2;
+    if (itemIndex >= 0 && itemIndex < static_cast<int>(items.size())) {
+        Item itemCopy = items[itemIndex];
+        itemCopy.use(playerMonster, enemyMonster);
+        return true;
+    }
+
+    std::cout << "Invalid choice." << std::endl;
+    return false;
+}
+
 void Game::battle() {
     std::vector<Monster> monsters = {
         Monster("Horse", 4, 1),
@@ -130,15 +164,28 @@ void Game::battle() {
                 std::cout << (playerTurn ? "You go first!" : "Enemy goes first!") << std::endl;
             }
             if (playerTurn) {
-                std::cout << "Your " << playerMonster.getName() << " attacks!" << std::endl;
-                enemyMonster.takeDamage(playerMonster.getAttackPower());
-                std::cout << "Enemy " << enemyMonster.getName()
-                          << " has " << enemyMonster.getHealth() << " health left." << std::endl;
+            playerMonster.tickStatuses();
+            if (playerMonster.getHealth() <= 0) break;      
+
+            if (playerMonster.isStunned()) {
+                std::cout << playerMonster.getName() 
+                          << " is stunned and skips their turn!" << std::endl;
             } else {
-                std::cout << "Enemy " << enemyMonster.getName() << " attacks!" << std::endl;
-                playerMonster.takeDamage(enemyMonster.getAttackPower());
-                std::cout << "Your " << playerMonster.getName()
-                          << " has " << playerMonster.getHealth() << " health left." << std::endl;
+                while (!playerTurnAction(playerMonster, enemyMonster));
+            }
+            } else {
+                enemyMonster.tickStatuses();
+                if (enemyMonster.getHealth() <= 0) break;
+                        
+                if (enemyMonster.isStunned()) {
+                    std::cout << enemyMonster.getName() 
+                              << " is stunned and skips their turn!" << std::endl;
+                } else {
+                    std::cout << "Enemy " << enemyMonster.getName() << " attacks!" << std::endl;
+                    playerMonster.takeDamage(enemyMonster.getAttackPower());
+                    std::cout << "Your " << playerMonster.getName()
+                              << " has " << playerMonster.getHealth() << " HP left." << std::endl;
+                }
             }
             playerTurn = !playerTurn;
             turnCount++;

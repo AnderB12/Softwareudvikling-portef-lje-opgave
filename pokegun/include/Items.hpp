@@ -2,6 +2,8 @@
 #include <string>
 #include <vector>
 
+class Monster;
+
 enum class ItemEffect {
     PoisonTarget,
     BurnTarget,
@@ -22,8 +24,9 @@ public:
     int getMagnitude() const;
     int getDuration() const;
 
-    static std::vector<Item> getItemList();
+    void use(Monster& user, Monster& target);
 
+    static std::vector<Item> getItemList();
     static Item getRandomReward();
 
 private:

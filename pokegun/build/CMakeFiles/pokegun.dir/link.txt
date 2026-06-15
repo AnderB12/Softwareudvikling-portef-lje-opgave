@@ -1,1 +1,0 @@
-/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/pokegun.dir/link.d CMakeFiles/pokegun.dir/src/main.cpp.o CMakeFiles/pokegun.dir/src/Monster.cpp.o CMakeFiles/pokegun.dir/src/Character.cpp.o CMakeFiles/pokegun.dir/src/Game.cpp.o CMakeFiles/pokegun.dir/src/Items.cpp.o -o pokegun

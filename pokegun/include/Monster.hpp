@@ -1,4 +1,6 @@
 #pragma once
+#include "StatusEffect.hpp"
+#include "Items.hpp"
 #include <string>
 #include <vector>
 
@@ -19,6 +21,13 @@ public:
     void setHealth(int health);
     void setAttackPower(int attackPower);
     void takeDamage(int damage);
+    void heal(int amount);
+    void setStunned(bool stunned);
+    bool isStunned() const;
+    void addStatus(const StatusEffect& status);
+    void tickStatuses();
+    void addItem(const Item& item);
+    const std::vector<Item>& getItems() const;
 
 private:
 
@@ -26,5 +35,9 @@ private:
     std::string name;
     int health;
     int attackPower;
+    bool stunned;
+    std::vector<StatusEffect> statuses;
+    std::vector<Item> items;
+
 
 };

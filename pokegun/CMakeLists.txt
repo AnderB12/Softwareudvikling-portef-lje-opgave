@@ -5,9 +5,11 @@ set(CMAKE_CXX_STANDARD 17)
 
 include_directories(include)
 
-add_executable(pokegun
+add_executable(SomeGame
     src/main.cpp
     src/Monster.cpp
     src/Character.cpp
     src/Game.cpp
+    src/Items.cpp
+    src/StatusEffect.cpp
 )
