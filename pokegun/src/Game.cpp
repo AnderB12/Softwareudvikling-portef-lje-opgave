@@ -6,10 +6,14 @@
 #include "Items.hpp"
 #include "StatusEffect.hpp"
  
-Game::Game() : character(nullptr) {}
+Game::Game() : character(nullptr) {
+    db = new Database("savegame.db");
+    db->initialize();
+}
  
 Game::~Game() {
     delete character;
+    delete db;
 }
  
 void Game::run() {
@@ -18,23 +22,57 @@ void Game::run() {
  
 void Game::showStartScreen() {
     std::cout << "=======================" << std::endl;
-    std::cout << "  Welcome to Some Game!  " << std::endl;
-    std::cout << "   1. New character    " << std::endl;
-    std::cout << "   2. Exit             " << std::endl;
+    std::cout << "  Welcome to O-Block!  " << std::endl;
     std::cout << "=======================" << std::endl;
- 
+
+    auto savedCharacters = db->listCharacters();
+    if (!savedCharacters.empty()) {
+        std::cout << "Saved characters:" << std::endl;
+        for (const auto& c : savedCharacters) {
+            std::cout << c.first << ". " << c.second << std::endl;
+        }
+        std::cout << "=======================" << std::endl;
+    }
+
+    int newOption  = 1;
+    int loadOption = savedCharacters.empty() ? -1 : 2;
+    int exitOption = savedCharacters.empty() ? 2 : 3;
+
+    std::cout << newOption  << ". New character" << std::endl;
+    if (!savedCharacters.empty()) {
+        std::cout << loadOption << ". Load character" << std::endl;
+    }
+    std::cout << exitOption << ". Exit" << std::endl;
+
     int choice;
     std::cin >> choice;
-    while (choice != 1 && choice != 2) {
-        std::cout << "Invalid choice. Please enter 1 or 2." << std::endl;
-        std::cin >> choice;
-    }
- 
-    if (choice == 1) {
+
+    if (choice == newOption) {
         createCharacter();
-    } else {
-        std::cout << "Goodbye!" << std::endl;
+    } else if (choice == loadOption && !savedCharacters.empty()) {
+    std::cout << "Choose a character:" << std::endl;
+    for (const auto& c : savedCharacters) {
+        std::cout << c.first << ". " << c.second << std::endl;
     }
+    int id;
+    std::cin >> id;
+
+    // Validate that the chosen id actually exists
+    bool valid = false;
+    for (const auto& c : savedCharacters) {
+        if (c.first == id) { valid = true; break; }
+    }
+    if (!valid) {
+        std::cout << "Invalid choice." << std::endl;
+        showStartScreen();
+        return;
+    }
+
+    delete character;
+    character = new Character(db->loadCharacter(id));
+    showMainMenu();
+}
+
 }
  
 void Game::createCharacter() {
@@ -53,42 +91,66 @@ void Game::createCharacter() {
 void Game::showMainMenu() {
     while (true) {
         if (character == nullptr) return;
-        
+
         std::cout << "===================" << std::endl;
         std::cout << "     Main Menu     " << std::endl;
         std::cout << "===================" << std::endl;
         std::cout << " 1. View Character " << std::endl;
         std::cout << " 2. Battle         " << std::endl;
-        std::cout << " 3. Cave         " << std::endl;
-        std::cout << " 4. Exit           " << std::endl;
+        std::cout << " 3. Cave           " << std::endl;
+        std::cout << " 4. Save           " << std::endl;
+        std::cout << " 5. Stats          " << std::endl;
+        std::cout << " 6. Exit           " << std::endl;
         std::cout << "===================" << std::endl;
- 
+
         int choice;
         std::cin >> choice;
- 
+
         if (choice == 1) {
             std::cout << "Character Name: " << character->getName() << std::endl;
             const auto& monsters = character->getMonsters();
             for (size_t i = 0; i < monsters.size(); ++i) {
                 std::cout << i + 1 << ". " << monsters[i].getName()
-                          << " (Health: " << monsters[i].getHealth()
-                          << ", Attack Power: " << monsters[i].getAttackPower()
+                          << " (HP: " << monsters[i].getHealth()
+                          << ", ATK: " << monsters[i].getAttackPower()
                           << ")" << std::endl;
+                const auto& items = monsters[i].getItems();
+                if (items.empty()) {
+                    std::cout << "   No items." << std::endl;
+                } else {
+                    for (const auto& item : items) {
+                        std::cout << "   - " << item.getName()
+                                  << ": " << item.getDescription() << std::endl;
+                    }
+                }
             }
         } else if (choice == 2) {
             battle();
         } else if (choice == 3) {
             runCave();
         } else if (choice == 4) {
+            db->saveCharacter(*character);
+        } else if (choice == 5) {
+            std::cout << "=== Stats ===" << std::endl;
+            std::cout << "Total monsters defeated: "
+                      << db->getTotalMonstersDefeated() << std::endl;
+            std::cout << "Most used item: "
+                      << db->getMostUsedItem(character->getName()) << std::endl;
+            std::cout << "Most used monster: "
+                      << db->getMostUsedMonster(character->getName()) << std::endl;
+            std::cout << "Most item kills: "
+                      << db->getMostItemKills(character->getName()) << std::endl;          
+        } else if (choice == 6) {
             std::cout << "Goodbye!" << std::endl;
             return;
         } else {
-            std::cout << "Invalid choice. Please enter a number between 1 and 4." << std::endl;
+            std::cout << "Invalid choice." << std::endl;
         }
     }
 }
  
-static bool playerTurnAction(Monster& playerMonster, Monster& enemyMonster) {
+static bool playerTurnAction(Monster& playerMonster, Monster& enemyMonster,
+                              Database* db, const std::string& characterName) {
     const auto& items = playerMonster.getItems();
 
     std::cout << "--- Your turn ---" << std::endl;
@@ -113,6 +175,10 @@ static bool playerTurnAction(Monster& playerMonster, Monster& enemyMonster) {
     if (itemIndex >= 0 && itemIndex < static_cast<int>(items.size())) {
         Item itemCopy = items[itemIndex];
         itemCopy.use(playerMonster, enemyMonster);
+        db->incrementItemUsed(characterName, itemCopy.getName());
+        if (enemyMonster.getHealth() <= 0) {
+            db->incrementItemKill(characterName, itemCopy.getName());
+        }
         return true;
     }
 
@@ -160,6 +226,7 @@ void Game::battle() {
     for (size_t i = 0; i < character->getMonsters().size(); ++i) {
         Monster playerMonster = character->getMonsters()[i];
         playerMonster.resetItems();
+        db->incrementMonsterUsed(character->getName(), playerMonster.getName());
 
         if (i > 0) {
             std::cout << playerMonster.getName() << " is up next!" << std::endl;
@@ -176,7 +243,7 @@ void Game::battle() {
                 if (playerMonster.isStunned()) {
                     std::cout << playerMonster.getName() << " is stunned and skips their turn!" << std::endl;
                 } else {
-                    while (!playerTurnAction(playerMonster, enemyMonster));
+                    while (!playerTurnAction(playerMonster, enemyMonster, db, character->getName()));
                 }
             } else {
                 enemyMonster.tickStatuses();
@@ -204,6 +271,7 @@ void Game::battle() {
     }
 
     if (playerWon) {
+        db->incrementMonstersDefeated();
         std::cout << "You won the battle!" << std::endl;
 
         std::cout << "Do you want to add " << enemyMonster.getName()
@@ -266,6 +334,7 @@ void Game::runCave() {
         for (size_t j = 0; j < character->getMonsters().size(); ++j) {
             Monster playerMonster = character->getMonsters()[j];
             playerMonster.resetItems();
+            db->incrementMonsterUsed(character->getName(), playerMonster.getName()); 
 
             if (j > 0) {
                 std::cout << playerMonster.getName() << " is up next!" << std::endl;
@@ -286,7 +355,7 @@ void Game::runCave() {
                         std::cout << playerMonster.getName()
                                   << " is stunned and skips their turn!" << std::endl;
                     } else {
-                        while (!playerTurnAction(playerMonster, enemyMonster));
+                        while (!playerTurnAction(playerMonster, enemyMonster, db, character->getName()));
                     }
                 } else {
                     enemyMonster.tickStatuses();
@@ -327,6 +396,7 @@ void Game::runCave() {
         }
 
         std::cout << "You defeated the " << enemyMonster.getName() << "!" << std::endl;
+        db->incrementMonstersDefeated();
     }
 
     std::cout << "\nYou cleared the " << cave.getName() << "!" << std::endl;

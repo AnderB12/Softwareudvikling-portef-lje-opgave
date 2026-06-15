@@ -5,6 +5,8 @@ set(CMAKE_CXX_STANDARD 17)
 
 include_directories(include)
 
+find_package(SQLite3 REQUIRED)
+
 add_executable(SomeGame
     src/main.cpp
     src/Monster.cpp
@@ -13,4 +15,8 @@ add_executable(SomeGame
     src/Items.cpp
     src/StatusEffect.cpp
     src/Cave.cpp
+    src/Database.cpp
+    
 )
+
+target_link_libraries(SomeGame SQLite::SQLite3)

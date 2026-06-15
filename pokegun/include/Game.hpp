@@ -2,6 +2,7 @@
 #include <string>
 #include "Character.hpp"
 #include "Cave.hpp"
+#include "Database.hpp"
  
 class Game {
 public:
@@ -13,6 +14,7 @@ public:
  
 private:
     Character* character;
+    Database* db;
  
     void showStartScreen();
     void createCharacter();
