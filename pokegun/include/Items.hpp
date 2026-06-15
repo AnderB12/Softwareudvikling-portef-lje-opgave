@@ -25,6 +25,7 @@ public:
     int getDuration() const;
 
     void use(Monster& user, Monster& target);
+    void resetUsed();
 
     static std::vector<Item> getItemList();
     static Item getRandomReward();
@@ -35,4 +36,5 @@ private:
     ItemEffect effect;
     int magnitude;
     int duration;
+    bool used = false;
 };

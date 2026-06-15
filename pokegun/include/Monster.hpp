@@ -28,6 +28,7 @@ public:
     void tickStatuses();
     void addItem(const Item& item);
     const std::vector<Item>& getItems() const;
+    void resetItems();
 
 private:
 

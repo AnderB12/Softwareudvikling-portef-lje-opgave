@@ -12,4 +12,5 @@ add_executable(SomeGame
     src/Game.cpp
     src/Items.cpp
     src/StatusEffect.cpp
+    src/Cave.cpp
 )
