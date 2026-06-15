@@ -1,5 +1,9 @@
 #include "Items.hpp"
+#include "Monster.hpp"
+#include "StatusEffect.hpp"
 #include <cstdlib>
+#include <iostream>
+
 
 Item::Item(std::string name, std::string description, ItemEffect effect,
            int magnitude, int duration)
@@ -33,4 +37,40 @@ std::vector<Item> Item::getItemList() {
 Item Item::getRandomReward() {
     std::vector<Item> catalogue = getItemList();
     return catalogue[rand() % catalogue.size()];
+}
+
+void Item::use(Monster& user, Monster& target) {
+    std::cout << user.getName() << " uses " << name << "!" << std::endl;
+
+    switch (effect) {
+        case ItemEffect::PoisonTarget:
+            target.addStatus(StatusEffect("Poison", duration, magnitude));
+            std::cout << target.getName() << " is poisoned for "
+                      << duration << " turns!" << std::endl;
+            break;
+
+        case ItemEffect::BurnTarget:
+            target.addStatus(StatusEffect("Burn", duration, magnitude));
+            std::cout << target.getName() << " is burning for "
+                      << duration << " turns!" << std::endl;
+            break;
+
+        case ItemEffect::StunTarget:
+            target.addStatus(StatusEffect("Stun", duration, magnitude));
+            std::cout << target.getName() << " is stunned for "
+                      << duration << " turns!" << std::endl;
+            break;
+
+        case ItemEffect::RegenSelf:
+            user.addStatus(StatusEffect("Regen", duration, magnitude));
+            std::cout << user.getName() << " starts regenerating for "
+                      << duration << " turns!" << std::endl;
+            break;
+
+        case ItemEffect::BoostAttack:
+            user.setAttackPower(user.getAttackPower() + magnitude);
+            std::cout << user.getName() << "'s attack rose by "
+                      << magnitude << "!" << std::endl;
+            break;
+    }
 }
