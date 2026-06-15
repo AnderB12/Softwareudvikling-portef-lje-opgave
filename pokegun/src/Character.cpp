@@ -32,3 +32,15 @@ void Character::removeMonster(int index) {
 bool Character::isFull() const {
     return monsters.size() >= 4;
 }
+
+int Character::getPlayerLevel() const {
+    int total = 0;
+    for (const auto& m : monsters) {
+        total += m.getAttackPower();
+    }
+    return total;
+}
+
+void Character::giveItem(const Item& item, int monsterIndex) {
+    monsters[monsterIndex].addItem(item);
+}

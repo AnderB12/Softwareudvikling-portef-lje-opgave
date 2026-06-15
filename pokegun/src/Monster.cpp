@@ -74,3 +74,9 @@ void Monster::addItem(const Item& item) {
 const std::vector<Item>& Monster::getItems() const {
     return items;
 }
+
+void Monster::resetItems() {
+    for (auto& item : items) {
+        item.resetUsed();
+    }
+}

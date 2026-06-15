@@ -40,6 +40,11 @@ Item Item::getRandomReward() {
 }
 
 void Item::use(Monster& user, Monster& target) {
+    if (used) {
+        std::cout << name << " has already been used this battle!" << std::endl;
+        return;
+    }
+    used = true;
     std::cout << user.getName() << " uses " << name << "!" << std::endl;
 
     switch (effect) {
@@ -73,4 +78,8 @@ void Item::use(Monster& user, Monster& target) {
                       << magnitude << "!" << std::endl;
             break;
     }
+}
+
+void Item::resetUsed() {
+used = false;
 }

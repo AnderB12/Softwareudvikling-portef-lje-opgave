@@ -1,14 +1,15 @@
 #pragma once
 #include <string>
 #include "Character.hpp"
+#include "Cave.hpp"
  
 class Game {
 public:
     Game();
     ~Game();
  
-    // Entry point — call this from main()
     void run();
+    void runCave();
  
 private:
     Character* character;
